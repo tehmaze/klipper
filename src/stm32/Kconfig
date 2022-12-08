@@ -390,12 +390,20 @@ choice
         bool "CAN bus (on PB0/PB1)"
         depends on HAVE_STM32_FDCANBUS
         select CANSERIAL
+    config STM32_MMENU_CANBUS_PB12_PB13
+        bool "CAN bus (on PB12/PB13)"
+        depends on HAVE_STM32_FDCANBUS
+        select CANSERIAL
     config STM32_MMENU_CANBUS_PD12_PD13
         bool "CAN bus (on PD12/PD13)"
         depends on HAVE_STM32_FDCANBUS
         select CANSERIAL
     config STM32_MMENU_CANBUS_PC2_PC3
         bool "CAN bus (on PC2/PC3)"
+        depends on HAVE_STM32_FDCANBUS
+        select CANSERIAL
+    config STM32_MMENU_CANBUS_PC4_PC5
+        bool "CAN bus (on PC4/PC5)"
         depends on HAVE_STM32_FDCANBUS
         select CANSERIAL
     config STM32_USBCANBUS_PA11_PA12
@@ -422,11 +430,17 @@ choice
     config STM32_CMENU_CANBUS_PB0_PB1
         bool "CAN bus (on PB0/PB1)"
         depends on HAVE_STM32_FDCANBUS
+    config STM32_CMENU_CANBUS_PB12_PB13
+        bool "CAN bus (on PB12/PB13)"
+        depends on HAVE_STM32_FDCANBUS
     config STM32_CMENU_CANBUS_PD12_PD13
         bool "CAN bus (on PD12/PD13)"
         depends on HAVE_STM32_FDCANBUS
     config STM32_CMENU_CANBUS_PC2_PC3
         bool "CAN bus (on PC2/PC3)"
+        depends on HAVE_STM32_FDCANBUS
+    config STM32_CMENU_CANBUS_PD14_PD15
+        bool "CAN bus (on PD14/PD15)"
         depends on HAVE_STM32_FDCANBUS
 endchoice
 
@@ -449,11 +463,17 @@ config STM32_CANBUS_PD0_PD1
 config STM32_CANBUS_PB0_PB1
     bool
     default y if STM32_MMENU_CANBUS_PB0_PB1 || STM32_CMENU_CANBUS_PB0_PB1
+config STM32_CANBUS_PB12_PB13
+    bool
+    default y if STM32_MMENU_CANBUS_PB12_PB13 || STM32_CMENU_CANBUS_PB12_PB13
 config STM32_CANBUS_PD12_PD13
     bool
     default y if STM32_MMENU_CANBUS_PD12_PD13 || STM32_CMENU_CANBUS_PD12_PD13
 config STM32_CANBUS_PC2_PC3
     bool
     default y if STM32_MMENU_CANBUS_PC2_PC3 || STM32_CMENU_CANBUS_PC2_PC3
+config STM32_CANBUS_PD14_PD15
+    bool
+    default y if STM32_MMENU_CANBUS_PD14_PD15 || STM32_CMENU_CANBUS_PD14_PD15
 
 endif
